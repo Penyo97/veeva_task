@@ -22,7 +22,7 @@ const CardContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #828A95;
-  width: 25vw;
+  width: 20vw;
   border-radius: 0.6rem;
 `
 

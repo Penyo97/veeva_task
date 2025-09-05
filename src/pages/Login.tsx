@@ -10,7 +10,6 @@ const Login = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const navigate = useNavigate()
 
-
     const onFinish = async (values: { username: string; password: string }) => {
         setLoading(true);
         const {username, password} = values;
