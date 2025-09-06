@@ -3,25 +3,29 @@ import type {TabsProps} from 'antd';
 import Boxdashboard from "./Boxdashboard.tsx";
 import Header from "../components/Header.tsx";
 import {DashBoardContainer} from "./DashBoardStyle.ts";
-import {DropboxOutlined} from "@ant-design/icons";
+import {DropboxOutlined, ShopOutlined, UserOutlined} from "@ant-design/icons";
+import Sellerdashboard from "./Sellerdashboard.tsx";
+import Storedashboard from "./Storedashboard.tsx";
 
 
 const items: TabsProps['items'] = [
     {
         key: '1',
-        label: 'Tab 1',
+        label: 'Box Dashboard',
         children: <Boxdashboard/>,
         icon: <DropboxOutlined/>
     },
     {
         key: '2',
-        label: 'Tab 2',
-        children: 'Content of Tab Pane 2',
+        label: 'Seller Dashboard',
+        children: <Sellerdashboard/>,
+        icon: <UserOutlined/>
     },
     {
         key: '3',
-        label: 'Tab 3',
-        children: 'Content of Tab Pane 3',
+        label: 'Store Dashboard',
+        children: <Storedashboard/>,
+        icon: <ShopOutlined/>
     },
 ];
 

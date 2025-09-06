@@ -36,7 +36,7 @@ const CustomTooltip = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
         return (
             <div style={{ backgroundColor: '#fff', border: '1px solid #ccc', padding: 10 }}>
-                <p><strong>{label}</strong></p>
+                <p><strong>{(label as string).replace("T"," ").replace("Z","")}</strong></p>
             </div> as ReactNode
         );
     }

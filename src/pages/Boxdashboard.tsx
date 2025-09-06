@@ -1,7 +1,7 @@
 import {useAppContext} from "../context/AppContext.tsx";
 import {JSX, useEffect, useState} from "react";
 import {DashBoardContainer, CardFlexBox} from './DashBoardStyle.ts'
-import Card from "../components/charts/Card.tsx";
+import BoxCard from "../components/charts/BoxCard.tsx";
 import BoxSellingBarChart from "../components/charts/BoxSellingBarChart.tsx";
 import BoxPurchasePerDay from "../components/charts/BoxPurchasePerDay.tsx";
 import {Spin} from "antd";
@@ -11,7 +11,7 @@ interface Product {
     name__v: string,
     brand_color_code__v: string,
     cost__v: number,
-    quantity_per_case__v: number
+    product_value__v: number
 }
 
 interface BoxSellingNumber {
@@ -38,11 +38,12 @@ const Boxdashboard = () => {
     const [sellingNumber, setSellingNumber] = useState<Array<BoxSellingNumber>>([])
     const [boxPurchase, setBoxPurchase] = useState<Array<BoxPurchasePerDayChart>>([])
     const {fetchData} = useAppContext()
-    const cardList: JSX.Element[] = products.map(product => <Card title={product.name__v}
-                                                                  stockNumber={product.quantity_per_case__v}/>);
+    const cardList: JSX.Element[] = products.map(product => <BoxCard title={product.name__v}
+                                                                     boxProfit={product.cost__v - product.product_value__v}
+                                                                     sellNumber={sellingNumber.find(item => item.name === product.name__v)?.number}/>);
 
     useEffect(() => {
-        fetchData<Product>("SELECT id, name__v, brand_color_code__v, cost__v, quantity_per_case__v  FROM product__v").then(value => {
+        fetchData<Product>("SELECT id, name__v, brand_color_code__v, cost__v, product_value__v  FROM product__v").then(value => {
             setProducts(value)
         })
         fetchData<any>("SELECT product_fk__cr.name__v, order_quantity__c FROM order_products_connection__c").then(value => {

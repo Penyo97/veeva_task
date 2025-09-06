@@ -2,15 +2,16 @@ import styled from "styled-components";
 
 interface cardProps {
     title: string,
-    stockNumber: number
+    boxProfit: number,
+    sellNumber?:number
 }
 
-const Card = ({title, stockNumber}: cardProps) => {
+const BoxCard = ({title, boxProfit, sellNumber}: cardProps) => {
     return (
         <CardContainer>
             <CardTexts>
                 <p>{title}</p>
-                <h2>{stockNumber}</h2>
+                <h2>€ {Math.round(boxProfit * sellNumber)}</h2>
             </CardTexts>
         </CardContainer>
     )
@@ -36,4 +37,4 @@ const CardTexts = styled.div`
     font-size: 28px;
   }
 `
-export default Card
+export default BoxCard
