@@ -80,7 +80,9 @@ const Storedashboard = () => {
 
   return(
       <>
+        <h2 style={{marginLeft: 70}}>Number of sales broken down by store</h2>
         <SellerBuyingChart data={sellerBuyCount}/>
+        <h2 style={{marginLeft: 70}}>Number of sales broken down by product</h2>
         <div style={{display: "flex"}}>
         {storeProductList}
         </div>

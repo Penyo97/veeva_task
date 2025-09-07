@@ -77,12 +77,16 @@ const Sellerdashboard = () => {
   return(
       <DashBoardContainer>
           <div style={{display: "flex"}}>
+              <div>
+              <h2 style={{marginLeft: 70, marginBottom: 3}}>Seller purchase number</h2>
               <SellerBuyingChart data={sellerBuyCount}/>
+              </div>
               <CardFlexBox>
                   <SellerCard title="Best Seller" name={sellerBuyCount.reduce((a, b) => a.buyCount > b.buyCount ? a : b).name} />
                   <SellerCard title="Worst Seller" name={sellerBuyCount.reduce((a, b) => a.buyCount < b.buyCount ? a : b).name} />
               </CardFlexBox>
           </div>
+          <h2 style={{marginLeft: 70}}>Number of sales broken down by store</h2>
           <div style={{display: "flex"}}>
               {sellerShopList}
           </div>

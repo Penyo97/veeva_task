@@ -61,13 +61,13 @@ const Boxdashboard = () => {
                 }])
         })
         fetchData<BoxPurchasePerDayInt>("SELECT order_fk__cr.order_date__c, product_fk__cr.name__v, order_quantity__c FROM order_products_connection__c").then(value => {
-            const arr : BoxPurchasePerDayChart[] = []
+            const arr: BoxPurchasePerDayChart[] = []
             value.forEach(item => {
-                let el : BoxPurchasePerDayChart = {
+                let el: BoxPurchasePerDayChart = {
                     blue: 0,
                     green: 0,
                     red: 0,
-                    date : item["order_fk__cr.order_date__c"],
+                    date: item["order_fk__cr.order_date__c"],
                 }
                 if (item["product_fk__cr.name__v"] === "Blue Box") {
                     el.blue = item.order_quantity__c
@@ -102,11 +102,15 @@ const Boxdashboard = () => {
     return (
         <DashBoardContainer>
             <div style={{display: "flex"}}>
-                <BoxSellingBarChart data={sellingNumber}/>
+                <div>
+                    <h2 style={{marginLeft: 70, marginBottom: 10}}>Total Box Purchase</h2>
+                    <BoxSellingBarChart data={sellingNumber}/>
+                </div>
                 <CardFlexBox>
                     {cardList}
                 </CardFlexBox>
             </div>
+            <h2 style={{marginLeft: 70, marginBottom: 3}}>Box Purchase / Day</h2>
             <BoxPurchasePerDay data={boxPurchase}/>
         </DashBoardContainer>
     )

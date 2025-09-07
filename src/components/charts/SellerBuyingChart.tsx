@@ -8,7 +8,7 @@ const SellerBuyingChart = ({data}: Props) => {
   return(
       <BarChart
           width={600}
-          height={400}
+          height={350}
           data={data}
           margin={{
               top: 5,

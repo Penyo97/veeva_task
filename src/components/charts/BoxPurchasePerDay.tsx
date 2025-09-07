@@ -10,7 +10,7 @@ const BoxPurchasePerDay = ({data} : Props) => {
         return(
                 <BarChart
                     width={1800}
-                    height={500}
+                    height={430}
                     data={data}
                     margin={{
                         top: 5,
